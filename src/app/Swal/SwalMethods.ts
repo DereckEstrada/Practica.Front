@@ -51,8 +51,7 @@ export class SwalMethods{
         })
         Swal.showLoading()
       }
-      modalAccept(text:string):boolean{
-        let confirm=false;
+      modalAcceptReload(text:string){
         Swal.fire({
           title: "Notificación",
           text:text,                    
@@ -61,9 +60,10 @@ export class SwalMethods{
           confirmButtonColor :"#00A45A",
           confirmButtonText: "Ok"
         }).then((result) => {
-            confirm=result.isConfirmed
+          if(result.isConfirmed){
+            window.location.reload();
+          }
         })
-        return confirm;
       }
       ChangesMessage(error:string){
         let message=error;

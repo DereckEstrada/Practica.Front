@@ -43,9 +43,7 @@ export class EmailModalComponent  extends SwalMethods {
     this.BuildRequest();
     this._services.GeneratedToken(this.request!).subscribe({
       next:resp=>{
-          if(this.modalAccept("Revise su correo para el cambio de contraseña")){
-            window.location.reload();
-          };
+          this.modalAcceptReload("Revise su correo para el cambio de contraseña")
       },error:err=>{
         this.ModalError(this.ChangesMessage(err.error));
       }
