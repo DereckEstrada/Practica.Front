@@ -1,17 +1,17 @@
 export class User {
-    userId!: number;
+    userId?: number;
     nameUser!: string;
     password!: string;
     email!: string;
-    active!: boolean;
+    active?: boolean;
     rolId?: number;
-    dateCreate!: Date;
+    dateCreate?: Date;
     dateModificate?: Date;
     userCreate?: number;
     userModificate?: number;
-    attempts!: number;
+    attempts?: number;
     recoveredToken?: string;
-    blocked!: boolean;
+    blocked?: boolean;
     dateLastAttempts?: Date;
   }
   

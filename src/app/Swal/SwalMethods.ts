@@ -1,8 +1,11 @@
+import { inject } from "@angular/core";
+import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 
 type NewType = boolean;
 
 export class SwalMethods{
+  private  _router=inject(Router);
     ModalError(mensaje?:string){
         Swal.fire({      
           icon: "error",
@@ -73,5 +76,19 @@ export class SwalMethods{
           message="Comuniquese con el departamente de desarrollo"
         }
         return message;
+      }
+      modalAcceptRouter(text:string, ruta:string){
+        Swal.fire({
+          title: "Notificación",
+          text:text,                    
+          icon: "info",
+          showCancelButton: false,
+          confirmButtonColor :"#00A45A",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if(result.isConfirmed){
+            this._router.navigateByUrl(ruta);           
+          }
+        })
       }
 }

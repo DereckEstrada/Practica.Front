@@ -14,6 +14,6 @@ export const environment = {
     ValidToken:"User/ValidToken",
     UpdateUser:"User/UpdateUser",
     token:"TokenProyecto",
-    urlFront:"localhost:4200/recoveredPassword/",
+    urlFront:"http://localhost:4200/recoveredPassword/",
     documentSendLink:"SendLinks.html"
 };

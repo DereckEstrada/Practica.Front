@@ -3,6 +3,8 @@ export class PersonDto {
     address?: string;
     userId?: number;
     nameUser?: string;
+    rol?: string;
+    email?: string;
     phone?: string;
     name?: string;
     lastName?: string;

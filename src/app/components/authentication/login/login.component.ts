@@ -44,7 +44,8 @@ export class LoginComponent extends SwalMethods {
     this._services.GetUser(this.request!).subscribe({
       next:resp=>{
         Swal.close();
-          this._route.navigateByUrl("proximamente");
+        this._services.CreateLocal(resp.data);
+          this._route.navigateByUrl("person");
       },error:err=>{
         this.ModalError(this.ChangesMessage(err.error));
       }

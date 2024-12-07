@@ -8,7 +8,7 @@ export const invalidLoginGuard: CanActivateFn = (route, state) => {
   if (typeof window !== 'undefined'){
     if(localStorage.getItem(environment.token)){
       validate=false;      
-      _router.navigateByUrl("reports");
+      _router.navigateByUrl("person");
     }
   }
   return validate;};
