@@ -8,12 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmailModalComponent } from './components/authentication/email-modal/email-modal.component';
 import { ProximamenteComponent } from './components/proximamente/proximamente.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptorFn } from '@angular/common/http';
 import { RecoveredComponent } from './components/authentication/recovered/recovered.component';
 import { PersonComponent } from './components/person/person.component';
 import { TableModule } from 'primeng/table';
 import { CreatePersonComponent } from './components/create-person/create-person.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MyHttpInterceptor } from './interceptos/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HttpClientModule,
     TableModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyHttpInterceptor, 
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

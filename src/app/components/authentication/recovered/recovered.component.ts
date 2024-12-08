@@ -1,4 +1,3 @@
-import { tokenInterceptor } from './../../../interceptos/token.interceptor';
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthenticationRequest } from '../../../Models/AuthenticationRequest';
 import Swal from 'sweetalert2';

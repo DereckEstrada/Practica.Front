@@ -11,6 +11,7 @@ import { RolService } from '../../services/rol.service';
 import { Rol } from '../../Models/Rol';
 import { Sex } from '../../Models/Sex';
 import { UserService } from '../../services/user.service';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-person',
@@ -32,6 +33,8 @@ export class PersonComponent  extends SwalMethods implements OnInit{
     this.initForm();
   }
   ngOnInit(): void {   
+    console.log(localStorage.getItem(environment.token))
+
     if(this._serviceUser.DateExpired()){
       this._serviceUser.ClearLocal();
       this.modalAcceptRouter("Su Sesión ha caducado", "login");     
